@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dad On The Road — Hospitality Media Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#1f3a2e;
+    --pine-deep:#152a21;
+    --oak:#a9784e;
+    --linen:#ede6d9;
+    --linen-light:#f6f1e8;
+    --ember:#c1622d;
+    --ink:#2b2620;
+    --paper-edge: rgba(43,38,32,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--linen);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+
+  body{
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(169,120,78,0.07), transparent 40%),
+      radial-gradient(circle at 90% 85%, rgba(31,58,46,0.06), transparent 45%);
+  }
+
+  header.hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--paper-edge);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--oak);
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:36px;
+    align-items:start;
+  }
+  .portrait-wrap{position:relative; width:180px;}
+  .portrait{
+    width:180px; height:180px;
+    border-radius:6px;
+    object-fit:cover;
+    border:6px solid var(--linen-light);
+    box-shadow:0 10px 24px rgba(43,38,32,0.18), 0 0 0 1px var(--paper-edge);
+    transform:rotate(-2deg);
+    display:block;
+  }
+  .seal{
+    position:absolute;
+    bottom:-16px; right:-18px;
+    width:76px; height:76px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #d97b45, var(--ember) 70%, #93481e 100%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 14px rgba(193,98,45,0.4), 0 0 0 3px var(--linen);
+    transform:rotate(8deg);
+  }
+  .seal-text{
+    font-family:'JetBrains Mono', monospace;
+    font-size:8.5px;
+    font-weight:600;
+    color:var(--linen-light);
+    text-align:center;
+    letter-spacing:0.04em;
+    line-height:1.3;
+    text-transform:uppercase;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:44px;
+    letter-spacing:-0.01em;
+    color:var(--pine-deep);
+    margin-bottom:6px;
+  }
+  .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:19px;
+    color:var(--oak);
+    margin-bottom:18px;
+  }
+  .bio{
+    font-size:16.5px;
+    max-width:56ch;
+    color:var(--ink);
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 18px;
+    margin-top:20px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+  }
+  .contact-row a{color:var(--pine); text-decoration:none; border-bottom:1px solid var(--paper-edge);}
+  .contact-row span{color:var(--ink); opacity:0.7;}
+
+  .collab{
+    background:var(--pine);
+    color:var(--linen-light);
+    padding:36px 40px;
+    border-radius:4px;
+    margin:44px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .collab::before{
+    content:"";
+    position:absolute; top:0; left:0; bottom:0; width:6px;
+    background:var(--ember);
+  }
+  .collab h2{
+    font-family:'Fraunces', serif;
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:12px;
+    color:#f6f1e8;
+  }
+  .collab p{font-size:15.5px; max-width:62ch; opacity:0.92;}
+  .collab p + p{margin-top:10px;}
+
+  section{margin:48px 0;}
+  h3.section-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--pine-deep);
+    margin-bottom:20px;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  h3.section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--paper-edge);
+  }
+
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+  .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    padding:7px 14px;
+    border:1px solid var(--oak);
+    border-radius:20px;
+    color:var(--pine-deep);
+    background:var(--linen-light);
+  }
+
+  .rate-list{list-style:none;}
+  .rate-item{
+    display:flex; align-items:baseline; gap:8px;
+    padding:14px 0;
+    border-bottom:1px dashed var(--paper-edge);
+  }
+  .rate-name{font-weight:700; font-size:15.5px; white-space:nowrap;}
+  .rate-desc{font-size:14px; color:var(--ink); opacity:0.75; flex-shrink:1;}
+  .rate-leader{flex:1; border-bottom:1px dotted var(--paper-edge); margin-bottom:5px;}
+  .rate-price{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:600;
+    font-size:15px;
+    color:var(--ember);
+    white-space:nowrap;
+  }
+  .rate-note{
+    margin-top:16px;
+    font-size:13.5px;
+    font-style:italic;
+    color:var(--oak);
+  }
+
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  .work-card{
+    display:block;
+    background:var(--linen-light);
+    border:1px solid var(--paper-edge);
+    border-radius:4px;
+    padding:18px;
+    text-decoration:none;
+    transition:transform 0.15s ease;
+  }
+  .work-card:hover{transform:translateY(-3px);}
+  .work-thumb{
+    display:block;
+    width:calc(100% + 36px);
+    aspect-ratio:16/9;
+    object-fit:cover;
+    margin:-18px -18px 14px -18px;
+    border-radius:4px 4px 0 0;
+    background:var(--paper-edge);
+  }
+  .work-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--oak);
+    margin-bottom:8px;
+    display:block;
+  }
+  .work-title{
+    display:block;
+    color:var(--pine-deep);
+    font-weight:600;
+    font-size:14.5px;
+    line-height:1.4;
+  }
+  .work-card:hover .work-title{color:var(--ember);}
+
+  .photo-caption{
+    font-size:14px;
+    color:var(--oak);
+    margin-bottom:18px;
+  }
+  .photo-caption strong{color:var(--pine-deep); font-weight:600;}
+  .photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+  }
+  .photo-grid img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    border-radius:3px;
+    display:block;
+  }
+  .photo-grid a:first-child img{
+    aspect-ratio:3/4;
+  }
+  .photo-grid a:first-child{grid-row:span 2;}
+  .photo-grid a:first-child img{height:100%; aspect-ratio:auto;}
+
+  footer{
+    border-top:1px solid var(--paper-edge);
+    padding:32px 0 56px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;
+    align-items:center;
+  }
+  .findme{display:flex; gap:22px; flex-wrap:wrap;}
+  .findme a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--pine);
+    text-decoration:none;
+    border-bottom:1px solid var(--paper-edge);
+    padding-bottom:2px;
+  }
+  .findme a:hover{color:var(--ember); border-color:var(--ember);}
+  .location{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--oak);
+  }
+
+  @media (max-width:640px){
+    .hero-grid{grid-template-columns:1fr; gap:20px;}
+    .portrait, .portrait-wrap{width:120px; height:120px;}
+    .portrait{width:120px; height:120px;}
+    h1{font-size:32px;}
+    .work-grid{grid-template-columns:1fr;}
+    .photo-grid{grid-template-columns:repeat(2, 1fr);}
+    .photo-grid a:first-child{grid-row:span 1; grid-column:span 2;}
+    .photo-grid a:first-child img{aspect-ratio:16/9; height:auto;}
+    .collab{padding:26px 22px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .work-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Hospitality Media Kit · Collaboration Kit</span>
+    <div class="hero-grid">
+      <div class="portrait-wrap">
+        <img class="portrait" src="images/profile-headshot.jpeg" alt="Steve, Dad On The Road">
+        <div class="seal"><span class="seal-text">On The<br>Road</span></div>
+      </div>
+      <div>
+        <h1>Dad On The Road</h1>
+        <p class="subtitle">Photo, video &amp; aerial content for hotels &amp; short-term rentals</p>
+        <p class="bio">I travel with my family and document real stays — boutique hotels, resorts, and short-term rentals — through photography, short-form video, and 4K drone footage. Content built for a property's own marketing, shot the way a guest actually experiences the place.</p>
+        <div class="contact-row">
+          <a href="mailto:stevesileomedia@gmail.com">stevesileomedia@gmail.com</a>
+          <span>Kansas City, MO · Available to travel nationally</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="collab">
+    <h2>How I Work</h2>
+    <p>I partner with hotels and short-term rentals during a hosted stay — documenting the property through a real family trip rather than a staged shoot. Photography covers the room, grounds, and guest experience; video and aerial drone coverage are available as an add-on for properties that want a fuller package.</p>
+    <p>Reach out with your property and my upcoming travel dates — happy to talk through what a collaboration could look like.</p>
+  </div>
+
+  <section>
+    <h3 class="section-title">Categories</h3>
+    <div class="tags">
+      <span class="tag">Boutique &amp; Luxury Hotels</span>
+      <span class="tag">Short-Term Rentals</span>
+      <span class="tag">Resorts</span>
+      <span class="tag">Family Travel</span>
+      <span class="tag">Aerial / Drone Content</span>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="section-title">Content Rates</h3>
+    <ul class="rate-list">
+      <li class="rate-item">
+        <span class="rate-name">Photo Package</span>
+        <span class="rate-desc">Room, grounds &amp; guest-experience photography</span>
+        <span class="rate-leader"></span>
+        <span class="rate-price">Hosted Stay</span>
+      </li>
+      <li class="rate-item">
+        <span class="rate-name">Video Package</span>
+        <span class="rate-desc">15–30 sec edited short-form video, cut for social</span>
+        <span class="rate-leader"></span>
+        <span class="rate-price">$300</span>
+      </li>
+      <li class="rate-item">
+        <span class="rate-name">Drone Add-On</span>
+        <span class="rate-desc">4K aerial photo &amp; video, added to any video booking</span>
+        <span class="rate-leader"></span>
+        <span class="rate-price">+$150</span>
+      </li>
+    </ul>
+    <p class="rate-note">Reach out about your property and travel dates — happy to discuss what fits.</p>
+  </section>
+
+  <section>
+    <h3 class="section-title">Aerial Work</h3>
+    <div class="work-grid">
+      <a class="work-card" href="https://www.youtube.com/watch?v=jfBSJfocOkg" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/jfBSJfocOkg/hqdefault.jpg" alt="" loading="lazy">
+        <span class="work-tag">YouTube · Drone</span>
+        <span class="work-title">2025 Best Independence Missouri Drone Footage (4K)</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="section-title">Portfolio</h3>
+    <p class="photo-caption">Featuring <strong>Ritz-Carlton St. Louis</strong> · <strong>Waldorf Astoria Park City</strong> · <strong>Graduate by Hilton Manhattan</strong> · <strong>Grand Hyatt Vail</strong> · <strong>Grand Teton National Park</strong></p>
+    <div class="photo-grid">
+      <a href="images/on-the-road/grand-teton-landscape.webp" target="_blank" rel="noopener"><img src="images/on-the-road/grand-teton-landscape.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/ritz-stl-room.webp" target="_blank" rel="noopener"><img src="images/on-the-road/ritz-stl-room.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/manhattan-skyline.webp" target="_blank" rel="noopener"><img src="images/on-the-road/manhattan-skyline.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/hotel-suite.webp" target="_blank" rel="noopener"><img src="images/on-the-road/hotel-suite.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/resort-pool.webp" target="_blank" rel="noopener"><img src="images/on-the-road/resort-pool.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/hotel-lobby-holiday.webp" target="_blank" rel="noopener"><img src="images/on-the-road/hotel-lobby-holiday.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/resort-grounds.webp" target="_blank" rel="noopener"><img src="images/on-the-road/resort-grounds.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/manhattan-view.webp" target="_blank" rel="noopener"><img src="images/on-the-road/manhattan-view.webp" alt="" loading="lazy"></a>
+      <a href="images/on-the-road/teton-lake-family.webp" target="_blank" rel="noopener"><img src="images/on-the-road/teton-lake-family.webp" alt="" loading="lazy"></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="findme">
+      <a href="https://www.youtube.com/@Airport_Dad" target="_blank" rel="noopener">YouTube · Airport Dad</a>
+      <a href="https://www.youtube.com/@DadTechApproved" target="_blank" rel="noopener">YouTube · DadTech Approved</a>
+      <a href="https://theairportdad.com" target="_blank" rel="noopener">TheAirportDad.com</a>
+    </div>
+    <span class="location">Kansas City, MO · On the road since 2025</span>
+  </footer>
+
+</div>
+</body>
+</html>
