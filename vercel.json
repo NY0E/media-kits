@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/", "has": [{ "type": "host", "value": "outdoors.dadpov.com" }], "destination": "/outdoors.html" },
     { "source": "/", "destination": "/hub.html" }
   ]
 }
