@@ -1,9 +1,7 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "bnb.dadpov.com" }], "destination": "/dadbnb.html" },
-    { "source": "/", "has": [{ "type": "host", "value": "outdoors.dadpov.com" }], "destination": "/outdoors.html" },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "bnb.dadpov.com" }], "destination": "/dadbnb.html" },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "outdoors.dadpov.com" }], "destination": "/outdoors.html" },
     { "source": "/", "destination": "/hub.html" }
   ]
 }
