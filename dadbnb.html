@@ -224,13 +224,24 @@
     gap:16px;
   }
   .work-card{
+    display:block;
     background:var(--linen-light);
     border:1px solid var(--paper-edge);
     border-radius:4px;
     padding:18px;
+    text-decoration:none;
     transition:transform 0.15s ease;
   }
   .work-card:hover{transform:translateY(-3px);}
+  .work-thumb{
+    display:block;
+    width:calc(100% + 36px);
+    aspect-ratio:16/9;
+    object-fit:cover;
+    margin:-18px -18px 14px -18px;
+    border-radius:4px 4px 0 0;
+    background:var(--paper-edge);
+  }
   .work-tag{
     font-family:'JetBrains Mono', monospace;
     font-size:10px;
@@ -240,14 +251,14 @@
     margin-bottom:8px;
     display:block;
   }
-  .work-card a{
+  .work-title{
+    display:block;
     color:var(--pine-deep);
-    text-decoration:none;
     font-weight:600;
     font-size:14.5px;
     line-height:1.4;
   }
-  .work-card a:hover{color:var(--ember);}
+  .work-card:hover .work-title{color:var(--ember);}
 
   footer{
     border-top:1px solid var(--paper-edge);
@@ -369,18 +380,21 @@
   <section>
     <h3 class="section-title">Selected Work</h3>
     <div class="work-grid">
-      <div class="work-card">
+      <a class="work-card" href="https://www.amazon.com/vdp/0833d5eab15242caa486673fb3f60a3b?ref_=aipsfvideo&linkCode=ssc&tag=stevenward0b-20&src=aipsf" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://m.media-amazon.com/images/I/41lgtygfj5L.jpg" alt="" loading="lazy">
         <span class="work-tag">Amazon · Install</span>
-        <a href="https://www.amazon.com/vdp/0833d5eab15242caa486673fb3f60a3b?ref_=aipsfvideo&linkCode=ssc&tag=stevenward0b-20&src=aipsf" target="_blank" rel="noopener">Mounting the monTEK Dual Monitor Wall Mount</a>
-      </div>
-      <div class="work-card">
+        <span class="work-title">Mounting the monTEK Dual Monitor Wall Mount</span>
+      </a>
+      <a class="work-card" href="https://www.amazon.com/vdp/0d60b9c1ede0483ba5d8d43565d49091?ref_=aipsfvideo&linkCode=ssc&tag=stevenward0b-20&src=aipsf" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://m.media-amazon.com/images/I/91RmfD3RyKL.png" alt="" loading="lazy">
         <span class="work-tag">Amazon · Review</span>
-        <a href="https://www.amazon.com/vdp/0d60b9c1ede0483ba5d8d43565d49091?ref_=aipsfvideo&linkCode=ssc&tag=stevenward0b-20&src=aipsf" target="_blank" rel="noopener">Honest Review of the Larkon Soccer Goal</a>
-      </div>
-      <div class="work-card">
+        <span class="work-title">Honest Review of the Larkon Soccer Goal</span>
+      </a>
+      <a class="work-card" href="https://www.youtube.com/watch?v=8ykjZKSUgLI" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/8ykjZKSUgLI/hqdefault.jpg" alt="" loading="lazy">
         <span class="work-tag">YouTube · Family</span>
-        <a href="https://www.youtube.com/watch?v=8ykjZKSUgLI" target="_blank" rel="noopener">The Rollpan Is a Game Changer for Busy Families</a>
-      </div>
+        <span class="work-title">The Rollpan Is a Game Changer for Busy Families</span>
+      </a>
     </div>
   </section>
 
