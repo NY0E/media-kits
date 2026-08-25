@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DadPOV — Outdoors Media Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#1f3a2e;
+    --pine-deep:#152a21;
+    --oak:#a9784e;
+    --linen:#ede6d9;
+    --linen-light:#f6f1e8;
+    --ember:#c1622d;
+    --ink:#2b2620;
+    --paper-edge: rgba(43,38,32,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--linen);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+
+  body{
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(169,120,78,0.07), transparent 40%),
+      radial-gradient(circle at 90% 85%, rgba(31,58,46,0.06), transparent 45%);
+  }
+
+  header.hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--paper-edge);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--oak);
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:36px;
+    align-items:start;
+  }
+  .portrait-wrap{position:relative; width:180px;}
+  .portrait{
+    width:180px; height:180px;
+    border-radius:6px;
+    object-fit:cover;
+    border:6px solid var(--linen-light);
+    box-shadow:0 10px 24px rgba(43,38,32,0.18), 0 0 0 1px var(--paper-edge);
+    transform:rotate(-2deg);
+    display:block;
+  }
+  .seal{
+    position:absolute;
+    bottom:-16px; right:-18px;
+    width:76px; height:76px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #d97b45, var(--ember) 70%, #93481e 100%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 14px rgba(193,98,45,0.4), 0 0 0 3px var(--linen);
+    transform:rotate(8deg);
+  }
+  .seal-text{
+    font-family:'JetBrains Mono', monospace;
+    font-size:8.5px;
+    font-weight:600;
+    color:var(--linen-light);
+    text-align:center;
+    letter-spacing:0.04em;
+    line-height:1.3;
+    text-transform:uppercase;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:44px;
+    letter-spacing:-0.01em;
+    color:var(--pine-deep);
+    margin-bottom:6px;
+  }
+  .subtitle{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:19px;
+    color:var(--oak);
+    margin-bottom:18px;
+  }
+  .bio{
+    font-size:16.5px;
+    max-width:56ch;
+    color:var(--ink);
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 18px;
+    margin-top:20px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+  }
+  .contact-row a{color:var(--pine); text-decoration:none; border-bottom:1px solid var(--paper-edge);}
+  .contact-row span{color:var(--ink); opacity:0.7;}
+
+  .collab{
+    background:var(--pine);
+    color:var(--linen-light);
+    padding:36px 40px;
+    border-radius:4px;
+    margin:44px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .collab::before{
+    content:"";
+    position:absolute; top:0; left:0; bottom:0; width:6px;
+    background:var(--ember);
+  }
+  .collab h2{
+    font-family:'Fraunces', serif;
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:12px;
+    color:#f6f1e8;
+  }
+  .collab p{font-size:15.5px; max-width:62ch; opacity:0.92;}
+  .collab p + p{margin-top:10px;}
+
+  section{margin:48px 0;}
+  h3.section-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--pine-deep);
+    margin-bottom:20px;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  h3.section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--paper-edge);
+  }
+
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+  .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    padding:7px 14px;
+    border:1px solid var(--oak);
+    border-radius:20px;
+    color:var(--pine-deep);
+    background:var(--linen-light);
+  }
+
+  .rate-list{list-style:none;}
+  .rate-item{
+    display:flex; align-items:baseline; gap:8px;
+    padding:14px 0;
+    border-bottom:1px dashed var(--paper-edge);
+  }
+  .rate-name{font-weight:700; font-size:15.5px; white-space:nowrap;}
+  .rate-desc{font-size:14px; color:var(--ink); opacity:0.75; flex-shrink:1;}
+  .rate-leader{flex:1; border-bottom:1px dotted var(--paper-edge); margin-bottom:5px;}
+  .rate-price{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:600;
+    font-size:15px;
+    color:var(--ember);
+    white-space:nowrap;
+  }
+  .rate-note{
+    margin-top:16px;
+    font-size:13.5px;
+    font-style:italic;
+    color:var(--oak);
+  }
+
+  .photo-caption{
+    font-size:14px;
+    color:var(--oak);
+    margin-bottom:18px;
+  }
+  .photo-caption strong{color:var(--pine-deep); font-weight:600;}
+  .photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+  }
+  .photo-grid img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    border-radius:3px;
+    display:block;
+  }
+  .placeholder-tile{
+    aspect-ratio:4/3;
+    border:1.5px dashed var(--oak);
+    border-radius:3px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--linen-light);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--oak);
+    text-align:center;
+    padding:10px;
+  }
+
+  footer{
+    border-top:1px solid var(--paper-edge);
+    padding:32px 0 56px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;
+    align-items:center;
+  }
+  .findme{display:flex; gap:22px; flex-wrap:wrap;}
+  .findme a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--pine);
+    text-decoration:none;
+    border-bottom:1px solid var(--paper-edge);
+    padding-bottom:2px;
+  }
+  .findme a:hover{color:var(--ember); border-color:var(--ember);}
+  .location{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--oak);
+  }
+
+  @media (max-width:640px){
+    .hero-grid{grid-template-columns:1fr; gap:20px;}
+    .portrait, .portrait-wrap{width:120px; height:120px;}
+    .portrait{width:120px; height:120px;}
+    h1{font-size:32px;}
+    .photo-grid{grid-template-columns:repeat(2, 1fr);}
+    .collab{padding:26px 22px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Outdoors Media Kit · Collaboration Kit</span>
+    <div class="hero-grid">
+      <div class="portrait-wrap">
+        <img class="portrait" src="images/profile-headshot.jpeg" alt="Steve, DadPOV">
+        <div class="seal"><span class="seal-text">DadPOV<br>Outdoors</span></div>
+      </div>
+      <div>
+        <h1>DadPOV</h1>
+        <p class="subtitle">Gear, camping &amp; family adventure content, tested in the field</p>
+        <p class="bio">[Placeholder — replace with a short bio: how you get outdoors with your family, what kind of trips/terrain you cover, and what makes your content useful to an outdoors brand.]</p>
+        <div class="contact-row">
+          <a href="mailto:stevesileomedia@gmail.com">stevesileomedia@gmail.com</a>
+          <span>Kansas City, MO · Available to travel</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="collab">
+    <h2>How I Work</h2>
+    <p>[Placeholder — describe how a collaboration typically works: gear sent for a real trip, product tested and documented in the field, photo/video delivered for the brand's own marketing.]</p>
+    <p>Reach out with your product and what you're looking for — happy to talk through what a collaboration could look like.</p>
+  </div>
+
+  <section>
+    <h3 class="section-title">Categories</h3>
+    <div class="tags">
+      <span class="tag">Camping Gear</span>
+      <span class="tag">Hiking &amp; Trail</span>
+      <span class="tag">National Parks</span>
+      <span class="tag">Family Outdoor Adventure</span>
+      <span class="tag">Overlanding</span>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="section-title">Content Rates</h3>
+    <ul class="rate-list">
+      <li class="rate-item">
+        <span class="rate-name">Photo Package</span>
+        <span class="rate-desc">[Placeholder description]</span>
+        <span class="rate-leader"></span>
+        <span class="rate-price">$—</span>
+      </li>
+      <li class="rate-item">
+        <span class="rate-name">Video Package</span>
+        <span class="rate-desc">[Placeholder description]</span>
+        <span class="rate-leader"></span>
+        <span class="rate-price">$—</span>
+      </li>
+    </ul>
+    <p class="rate-note">Reach out about your product and timeline — happy to discuss what fits.</p>
+  </section>
+
+  <section>
+    <h3 class="section-title">Portfolio</h3>
+    <p class="photo-caption">[Placeholder — list featured trips/locations once photos are added]</p>
+    <div class="photo-grid">
+      <div class="placeholder-tile">Add photo</div>
+      <div class="placeholder-tile">Add photo</div>
+      <div class="placeholder-tile">Add photo</div>
+      <div class="placeholder-tile">Add photo</div>
+      <div class="placeholder-tile">Add photo</div>
+      <div class="placeholder-tile">Add photo</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="findme">
+      <a href="https://www.youtube.com/@Airport_Dad" target="_blank" rel="noopener">YouTube · Airport Dad</a>
+      <a href="https://www.youtube.com/@DadTechApproved" target="_blank" rel="noopener">YouTube · DadTech Approved</a>
+      <a href="https://theairportdad.com" target="_blank" rel="noopener">TheAirportDad.com</a>
+    </div>
+    <span class="location">Kansas City, MO · Est. content since 2025</span>
+  </footer>
+
+</div>
+</body>
+</html>

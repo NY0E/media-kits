@@ -3,35 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Media Kits</title>
+<title>DadPOV — Media Kits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root{
+    --pine:#1f3a2e;
+    --pine-deep:#152a21;
+    --oak:#a9784e;
+    --linen:#ede6d9;
+    --linen-light:#f6f1e8;
+    --ember:#c1622d;
+    --ink:#2b2620;
+    --paper-edge: rgba(43,38,32,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
   body{
-    background:#ede6d9;
-    color:#2b2620;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    background:var(--linen);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
     min-height:100vh;
-    margin:0;
-    gap:20px;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(169,120,78,0.07), transparent 40%),
+      radial-gradient(circle at 90% 85%, rgba(31,58,46,0.06), transparent 45%);
   }
-  a{
-    font-size:18px;
+  .wrap{max-width:760px; margin:0 auto; padding:88px 28px 64px;}
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--oak);
     font-weight:600;
-    color:#1f3a2e;
-    text-decoration:none;
-    padding:14px 28px;
-    border:1px solid #1f3a2e;
-    border-radius:6px;
+    margin-bottom:14px;
+    display:block;
   }
-  a:hover{background:#1f3a2e; color:#ede6d9;}
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:52px;
+    letter-spacing:-0.01em;
+    color:var(--pine-deep);
+    margin-bottom:10px;
+  }
+  .tagline{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:19px;
+    color:var(--oak);
+    margin-bottom:56px;
+    max-width:52ch;
+  }
+
+  .kit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .kit-card{
+    display:block;
+    background:var(--linen-light);
+    border:1px solid var(--paper-edge);
+    border-radius:6px;
+    padding:24px 26px;
+    text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .kit-card::before{
+    content:"";
+    position:absolute; top:0; left:0; bottom:0; width:5px;
+    background:var(--ember);
+  }
+  .kit-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px rgba(43,38,32,0.12);
+  }
+  .kit-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--oak);
+    margin-bottom:10px;
+    display:block;
+  }
+  .kit-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--pine-deep);
+    margin-bottom:8px;
+    display:block;
+  }
+  .kit-desc{
+    font-size:14.5px;
+    color:var(--ink);
+    opacity:0.8;
+  }
+  .kit-card:hover .kit-name{color:var(--ember);}
+
+  footer{
+    margin-top:64px;
+    padding-top:24px;
+    border-top:1px solid var(--paper-edge);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--oak);
+  }
+
+  @media (max-width:600px){
+    .wrap{padding:56px 22px 48px;}
+    h1{font-size:38px;}
+    .kit-grid{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
-  <a href="/dadbnb">DadBNB Media Kit</a>
-  <a href="/dadtech">DadTech Media Kit</a>
-  <a href="/on-the-road">Dad On The Road Media Kit</a>
+<div class="wrap">
+
+  <span class="eyebrow">Media Kits</span>
+  <h1>DadPOV</h1>
+  <p class="tagline">Real family content across the niches I actually live in — stays, gear, tech, and the road.</p>
+
+  <div class="kit-grid">
+    <a class="kit-card" href="https://bnb.dadpov.com">
+      <span class="kit-tag">Short-Term Rentals</span>
+      <span class="kit-name">DadBNB</span>
+      <span class="kit-desc">Reviews and content from my own short-term rental properties.</span>
+    </a>
+    <a class="kit-card" href="https://travel.dadpov.com">
+      <span class="kit-tag">Hotels &amp; Travel</span>
+      <span class="kit-name">Dad On The Road</span>
+      <span class="kit-desc">Photo, video &amp; aerial content for hotels and resorts, shot on real family trips.</span>
+    </a>
+    <a class="kit-card" href="https://tech.dadpov.com">
+      <span class="kit-tag">Smart Home &amp; Tech</span>
+      <span class="kit-name">DadTech Approved</span>
+      <span class="kit-desc">Family tech and smart home products, tested in a real household.</span>
+    </a>
+    <a class="kit-card" href="https://outdoors.dadpov.com">
+      <span class="kit-tag">Outdoors &amp; Adventure</span>
+      <span class="kit-name">DadPOV Outdoors</span>
+      <span class="kit-desc">Gear, camping &amp; family adventure content, tested in the field.</span>
+    </a>
+  </div>
+
+  <footer>Kansas City, MO · stevesileomedia@gmail.com</footer>
+
+</div>
 </body>
 </html>
