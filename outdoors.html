@@ -187,40 +187,47 @@
     color:var(--oak);
   }
 
-  .photo-caption{
-    font-size:14px;
-    color:var(--oak);
-    margin-bottom:18px;
-  }
-  .photo-caption strong{color:var(--pine-deep); font-weight:600;}
-  .photo-grid{
+  .work-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    gap:10px;
+    gap:16px;
   }
-  .photo-grid img{
-    width:100%;
-    aspect-ratio:4/3;
+  .work-card{
+    display:block;
+    background:var(--linen-light);
+    border:1px solid var(--paper-edge);
+    border-radius:4px;
+    padding:18px;
+    text-decoration:none;
+    transition:transform 0.15s ease;
+  }
+  .work-card:hover{transform:translateY(-3px);}
+  .work-thumb{
+    display:block;
+    width:calc(100% + 36px);
+    aspect-ratio:16/9;
     object-fit:cover;
-    border-radius:3px;
+    margin:-18px -18px 14px -18px;
+    border-radius:4px 4px 0 0;
+    background:var(--paper-edge);
+  }
+  .work-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--oak);
+    margin-bottom:8px;
     display:block;
   }
-  .placeholder-tile{
-    aspect-ratio:4/3;
-    border:1.5px dashed var(--oak);
-    border-radius:3px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--linen-light);
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    color:var(--oak);
-    text-align:center;
-    padding:10px;
+  .work-title{
+    display:block;
+    color:var(--pine-deep);
+    font-weight:600;
+    font-size:14.5px;
+    line-height:1.4;
   }
+  .work-card:hover .work-title{color:var(--ember);}
 
   footer{
     border-top:1px solid var(--paper-edge);
@@ -249,7 +256,7 @@
     .portrait, .portrait-wrap{width:120px; height:120px;}
     .portrait{width:120px; height:120px;}
     h1{font-size:32px;}
-    .photo-grid{grid-template-columns:repeat(2, 1fr);}
+    .work-grid{grid-template-columns:1fr;}
     .collab{padding:26px 22px;}
   }
 </style>
@@ -285,6 +292,7 @@
   <section>
     <h3 class="section-title">Categories</h3>
     <div class="tags">
+      <span class="tag">Hunting</span>
       <span class="tag">Camping Gear</span>
       <span class="tag">Hiking &amp; Trail</span>
       <span class="tag">National Parks</span>
@@ -313,15 +321,38 @@
   </section>
 
   <section>
-    <h3 class="section-title">Portfolio</h3>
-    <p class="photo-caption">[Placeholder — list featured trips/locations once photos are added]</p>
-    <div class="photo-grid">
-      <div class="placeholder-tile">Add photo</div>
-      <div class="placeholder-tile">Add photo</div>
-      <div class="placeholder-tile">Add photo</div>
-      <div class="placeholder-tile">Add photo</div>
-      <div class="placeholder-tile">Add photo</div>
-      <div class="placeholder-tile">Add photo</div>
+    <h3 class="section-title">Product Reviews</h3>
+    <div class="work-grid">
+      <a class="work-card" href="https://youtu.be/RxfwHU04-IQ" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/RxfwHU04-IQ/hqdefault.jpg" alt="" loading="lazy">
+        <span class="work-tag">YouTube · Review</span>
+        <span class="work-title">Overview of the LIVANS Tactical Molle Medical Pouch</span>
+      </a>
+      <a class="work-card" href="https://youtu.be/xX_z8f3dwFo" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/xX_z8f3dwFo/hqdefault.jpg" alt="" loading="lazy">
+        <span class="work-tag">YouTube · Review</span>
+        <span class="work-title">My Thoughts on the CVLife Small EDC Fixed Blade Knife</span>
+      </a>
+      <a class="work-card" href="https://youtu.be/wD2hgNqVoo4" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/wD2hgNqVoo4/hqdefault.jpg" alt="" loading="lazy">
+        <span class="work-tag">YouTube · Review</span>
+        <span class="work-title">First Impressions of the Rexmore Tactical Electrician Bag</span>
+      </a>
+      <a class="work-card" href="https://youtu.be/s77bBgHdGMc" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/s77bBgHdGMc/hqdefault.jpg" alt="" loading="lazy">
+        <span class="work-tag">YouTube · Review</span>
+        <span class="work-title">Reviewing the KEXMO Pocket Folding Knife</span>
+      </a>
+      <a class="work-card" href="https://youtu.be/JTPsPQQwLs8" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/JTPsPQQwLs8/hqdefault.jpg" alt="" loading="lazy">
+        <span class="work-tag">YouTube · Review</span>
+        <span class="work-title">Putting the OWLNV Thermal Imaging Monocular to the Test</span>
+      </a>
+      <a class="work-card" href="https://youtu.be/G3edYCp0NyI" target="_blank" rel="noopener">
+        <img class="work-thumb" src="https://img.youtube.com/vi/G3edYCp0NyI/hqdefault.jpg" alt="" loading="lazy">
+        <span class="work-tag">YouTube · Review</span>
+        <span class="work-title">Is This My New Favorite Do-It-All Camping Lantern?</span>
+      </a>
     </div>
   </section>
 
