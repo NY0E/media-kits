@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DadTech Approved — Field Test Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16233b;
+    --navy-deep:#0e1626;
+    --steel:#4b5a6a;
+    --paper:#eef1f3;
+    --paper-card:#ffffff;
+    --signal:#ff6a3d;
+    --ink:#10151c;
+    --line: rgba(16,21,28,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:28px 28px;
+    background-position:-1px -1px;
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+  .wrap{max-width:940px; margin:0 auto; padding:0 28px;}
+
+  header.hero{padding:56px 0 36px;}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 220px;
+    gap:36px;
+    align-items:start;
+  }
+  .tag-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    color:var(--signal);
+    font-weight:600;
+    display:inline-block;
+    margin-bottom:16px;
+    padding:4px 10px;
+    border:1px solid var(--signal);
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:46px;
+    letter-spacing:-0.02em;
+    color:var(--navy-deep);
+    margin-bottom:10px;
+  }
+  .subtitle{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--steel);
+    margin-bottom:18px;
+  }
+  .bio{
+    font-size:16px;
+    max-width:54ch;
+    color:var(--ink);
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 20px;
+    margin-top:22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  .contact-row a{color:var(--navy); text-decoration:none; border-bottom:1px solid var(--line);}
+  .contact-row span{color:var(--steel);}
+
+  .frame-wrap{position:relative; width:220px; height:220px;}
+  .frame-corner{
+    position:absolute; width:22px; height:22px;
+    border-color:var(--signal);
+  }
+  .fc-tl{top:-6px; left:-6px; border-top:3px solid; border-left:3px solid;}
+  .fc-tr{top:-6px; right:-6px; border-top:3px solid; border-right:3px solid;}
+  .fc-bl{bottom:-6px; left:-6px; border-bottom:3px solid; border-left:3px solid;}
+  .fc-br{bottom:-6px; right:-6px; border-bottom:3px solid; border-right:3px solid;}
+  .portrait{
+    width:220px; height:220px;
+    object-fit:cover;
+    filter:grayscale(15%) contrast(1.03);
+    border:1px solid var(--navy-deep);
+    display:block;
+  }
+  .readout{
+    position:absolute; bottom:8px; left:8px; right:8px;
+    background:rgba(14,22,38,0.86);
+    color:#eef1f3;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    padding:6px 8px;
+    display:flex; justify-content:space-between;
+  }
+  .badge{
+    color:var(--signal);
+    font-weight:600;
+  }
+
+  /* spec sheet stats */
+  .spec-sheet{
+    margin:40px 0;
+    border:1px solid var(--navy-deep);
+    background:var(--paper-card);
+  }
+  .spec-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 22px;
+    border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-key{color:var(--steel); letter-spacing:0.04em; text-transform:uppercase; font-size:11.5px;}
+  .spec-val{color:var(--navy-deep); font-weight:600; font-size:16px;}
+
+  .collab{
+    background:var(--paper-card);
+    border:1px solid var(--navy-deep);
+    border-left:6px solid var(--signal);
+    padding:28px 30px;
+    margin:44px 0;
+  }
+  .collab-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--signal);
+    text-transform:uppercase;
+    margin-bottom:10px;
+    display:block;
+  }
+  .collab h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:22px;
+    font-weight:700;
+    color:var(--navy-deep);
+    margin-bottom:12px;
+  }
+  .collab p{font-size:15px; max-width:64ch; color:var(--ink);}
+  .collab p + p{margin-top:10px;}
+
+  section{margin:48px 0;}
+  h3.section-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    color:var(--navy-deep);
+    margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  h3.section-title::before{
+    content:"//";
+    color:var(--signal);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:6px 12px;
+    border:1px solid var(--navy-deep);
+    color:var(--navy-deep);
+    background:var(--paper-card);
+  }
+
+  table.rate-table{width:100%; border-collapse:collapse; background:var(--paper-card); border:1px solid var(--navy-deep);}
+  table.rate-table th, table.rate-table td{
+    text-align:left; padding:12px 16px; font-size:14px;
+    border-bottom:1px solid var(--line);
+  }
+  table.rate-table th{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--steel);
+    background:var(--paper);
+    border-bottom:1px solid var(--navy-deep);
+  }
+  table.rate-table tr:last-child td{border-bottom:none;}
+  .price-cell{font-family:'IBM Plex Mono', monospace; font-weight:600; color:var(--signal); white-space:nowrap;}
+
+  .log-list{border:1px solid var(--navy-deep); background:var(--paper-card);}
+  .log-row{
+    display:flex; align-items:center; gap:14px;
+    padding:14px 18px;
+    border-bottom:1px solid var(--line);
+  }
+  .log-row:last-child{border-bottom:none;}
+  .log-check{
+    width:20px; height:20px; flex-shrink:0;
+    border:1.5px solid var(--navy-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; color:var(--signal); font-weight:700;
+  }
+  .log-channel{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--steel);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    width:130px;
+    flex-shrink:0;
+  }
+  .log-row a{color:var(--navy-deep); text-decoration:none; font-weight:500; font-size:14.5px;}
+  .log-row a:hover{color:var(--signal);}
+
+  .field-photo-wrap{position:relative; width:100%; max-width:520px;}
+  .field-photo{
+    width:100%;
+    display:block;
+    object-fit:cover;
+    filter:grayscale(10%) contrast(1.03);
+    border:1px solid var(--navy-deep);
+  }
+  .field-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--steel);
+    margin-top:14px;
+    max-width:60ch;
+  }
+
+  footer{
+    border-top:1px solid var(--navy-deep);
+    padding:30px 0 56px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;
+    align-items:center;
+  }
+  .findme{display:flex; gap:22px; flex-wrap:wrap;}
+  .findme a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .findme a:hover{color:var(--signal); border-color:var(--signal);}
+  .location{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--steel);
+  }
+
+  @media (max-width:640px){
+    .hero-grid{grid-template-columns:1fr;}
+    .frame-wrap, .portrait{width:100%; max-width:220px; height:220px;}
+    h1{font-size:32px;}
+    .spec-row{flex-direction:column; align-items:flex-start; gap:4px;}
+    table.rate-table{font-size:13px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="tag-label">FIELD TEST LOG · CREATOR SPEC SHEET</span>
+        <h1>DadTech Approved</h1>
+        <p class="subtitle">// Smart home &amp; family tech, tested in a real household</p>
+        <p class="bio">Dad Tech creator covering smart home, family &amp; everyday gear — from security cameras to weekend fixes — across two YouTube channels and Amazon. Real tests from a real household, so parents know what's actually worth buying.</p>
+        <div class="contact-row">
+          <a href="mailto:stevesileomedia@gmail.com">stevesileomedia@gmail.com</a>
+          <span>Kansas City, MO</span>
+          <a href="https://www.amazon.com/shop/dad.tested" target="_blank" rel="noopener">amazon.com/shop/dad.tested</a>
+        </div>
+      </div>
+      <div class="frame-wrap">
+        <div class="frame-corner fc-tl"></div>
+        <div class="frame-corner fc-tr"></div>
+        <div class="frame-corner fc-bl"></div>
+        <div class="frame-corner fc-br"></div>
+        <img class="portrait" src="images/profile-headshot.jpeg" alt="Steve, DadTech Approved">
+        <div class="readout"><span>UNIT: STEVE</span><span class="badge">VERIFIED</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="spec-sheet">
+    <div class="spec-row"><span class="spec-key">Items Shipped</span><span class="spec-val">2,000</span></div>
+    <div class="spec-row"><span class="spec-key">Amazon Revenue</span><span class="spec-val">$130,164</span></div>
+    <div class="spec-row"><span class="spec-key">Active Channels</span><span class="spec-val">2 (Review + Vlog)</span></div>
+    <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val">Gold Creator</span></div>
+  </div>
+
+  <div class="collab">
+    <span class="collab-eyebrow">Collaboration Note</span>
+    <h2>Two channels, two audiences, one product</h2>
+    <p>DadTech Approved handles the structured review — spec breakdown, install, honest verdict. DadTechPOV covers it again from the day-to-day vlog side, so your product gets placed in front of two distinct audiences from a single sample.</p>
+    <p>Send products that solve a real household problem (security, setup friction, family logistics) and I'll build the test around the actual use case, not just a features list.</p>
+  </div>
+
+  <section>
+    <h3 class="section-title">In the Field</h3>
+    <div class="field-photo-wrap">
+      <div class="frame-corner fc-tl"></div>
+      <div class="frame-corner fc-tr"></div>
+      <div class="frame-corner fc-bl"></div>
+      <div class="frame-corner fc-br"></div>
+      <img class="field-photo" src="images/lifestyle-family.jpeg" alt="Field testing with the whole crew">
+      <div class="readout"><span>LOG: FIELD TEST</span><span class="badge">3-PERSON PAYLOAD</span></div>
+    </div>
+    <p class="field-caption">// Gear gets tested where it actually matters — on the go, with kids attached.</p>
+  </section>
+
+  <section>
+    <h3 class="section-title">Categories</h3>
+    <div class="tags">
+      <span class="tag">SMART HOME</span>
+      <span class="tag">FAMILY TECH</span>
+      <span class="tag">SECURITY</span>
+      <span class="tag">HOME &amp; KITCHEN</span>
+      <span class="tag">OUTDOOR</span>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="section-title">Content Rates</h3>
+    <table class="rate-table">
+      <tr><th>Format</th><th>Spec</th><th>Rate</th></tr>
+      <tr><td>Unboxing</td><td>30–90 sec, product featured</td><td class="price-cell">Free</td></tr>
+      <tr><td>Demo / How-To</td><td>90–120 sec, product in use</td><td class="price-cell">$90</td></tr>
+      <tr><td>Install Video</td><td>Unboxing + full installation</td><td class="price-cell">$190</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h3 class="section-title">Test Log — Selected Work</h3>
+    <div class="log-list">
+      <div class="log-row">
+        <div class="log-check">✓</div>
+        <div class="log-channel">DadTechPOV</div>
+        <a href="https://www.youtube.com/watch?v=8ykjZKSUgLI" target="_blank" rel="noopener">The Rollpan Is a Game Changer for Busy Families</a>
+      </div>
+      <div class="log-row">
+        <div class="log-check">✓</div>
+        <div class="log-channel">DadTech Approved</div>
+        <a href="https://www.youtube.com/watch?v=eswITL-rq7c" target="_blank" rel="noopener">Is an ONVIF Compatible Window Cam Too Good to Be True?</a>
+      </div>
+      <div class="log-row">
+        <div class="log-check">✓</div>
+        <div class="log-channel">Amazon · Install</div>
+        <a href="https://www.amazon.com/vdp/0833d5eab15242caa486673fb3f60a3b?ref_=aipsfvideo&linkCode=ssc&tag=stevenward0b-20&src=aipsf" target="_blank" rel="noopener">Mounting the monTEK Dual Monitor Wall Mount</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="findme">
+      <a href="https://www.youtube.com/@DadTechApproved" target="_blank" rel="noopener">YouTube · Review Channel</a>
+      <a href="https://www.youtube.com/@dadtechpov" target="_blank" rel="noopener">YouTube · DadTechPOV</a>
+      <a href="https://SteveSileo.com" target="_blank" rel="noopener">SteveSileo.com</a>
+    </div>
+    <span class="location">Kansas City, MO · Log active since 2025</span>
+  </footer>
+
+</div>
+</body>
+</html>
