@@ -4,6 +4,7 @@
     { "source": "/", "has": [{ "type": "host", "value": "^travel\\.dadpov\\.com$" }], "destination": "/on-the-road.html" },
     { "source": "/", "has": [{ "type": "host", "value": "^tech\\.dadpov\\.com$" }], "destination": "/dadtech.html" },
     { "source": "/", "has": [{ "type": "host", "value": "^outdoors\\.dadpov\\.com$" }], "destination": "/outdoors.html" },
+    { "source": "/", "has": [{ "type": "host", "value": "^household\\.dadpov\\.com$" }], "destination": "/household.html" },
     { "source": "/", "has": [{ "type": "host", "value": "^www\\.dadpov\\.com$" }], "destination": "/hub.html" }
   ]
 }
